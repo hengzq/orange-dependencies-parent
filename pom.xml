@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>cn.hengzq.orange</groupId>
+    <artifactId>orange-dependencies-parent</artifactId>
+    <version>${revision}</version>
+    <name>${project.artifactId}</name>
+    <packaging>pom</packaging>
+
+    <description>
+        orange-dependencies-parent
+    </description>
+
+
+    <properties>
+        <revision>0.0.1-SNAPSHOT</revision>
+
+        <java.version>17</java.version>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
+        <versions-maven-plugin.verion>2.17.1</versions-maven-plugin.verion>
+        <flatten-maven-plugin.version>1.6.0</flatten-maven-plugin.version>
+
+        <spring.boot.version>3.2.4</spring.boot.version>
+        <spring-ai.version>1.0.0-M1</spring-ai.version>
+        <spring-cloud.version>2023.0.1</spring-cloud.version>
+        <com.alibaba.cloud.version>2023.0.1.2</com.alibaba.cloud.version>
+
+        <hutool.version>5.8.26</hutool.version>
+        <!--    转换器 start        -->
+        <org.projectlombok.version>1.18.22</org.projectlombok.version>
+        <org.mapstruct.version>1.5.3.Final</org.mapstruct.version>
+        <!--    转换器 end        -->
+
+        <!--     数据库 start        -->
+        <mybatis-plus-spring-boot3-starter.version>3.5.7</mybatis-plus-spring-boot3-starter.version>
+        <druid-spring-boot-starter.version>1.2.9</druid-spring-boot-starter.version>
+        <mysql-connector-java.version>8.0.33</mysql-connector-java.version>
+        <!--     数据库 end        -->
+
+        <!--     文档 start        -->
+        <io.swagger.core.v3.version>2.2.21</io.swagger.core.v3.version>
+        <org.springdoc.version>2.5.0</org.springdoc.version>
+        <com.github.xiaoymin.version>4.5.0</com.github.xiaoymin.version>
+        <!--     文档 end        -->
+        <transmittable-thread-local.version>2.14.2</transmittable-thread-local.version>
+
+        <!-- Jwt Token -->
+        <com.auth0.version>4.4.0</com.auth0.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <!--自定义starter start-->
+            <dependency>
+                <groupId>cn.hengzq.orange</groupId>
+                <artifactId>orange-starter-common</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.hengzq.orange</groupId>
+                <artifactId>orange-starter-context</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.hengzq.orange</groupId>
+                <artifactId>orange-starter-mybatis</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.hengzq.orange</groupId>
+                <artifactId>orange-starter-security</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.hengzq.orange</groupId>
+                <artifactId>orange-starter-springdoc-webmvc</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.hengzq.orange</groupId>
+                <artifactId>orange-starter-webmvc</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <!--自定义starter end-->
+            <dependency>
+                <groupId>io.swagger.core.v3</groupId>
+                <artifactId>swagger-annotations-jakarta</artifactId>
+                <version>${io.swagger.core.v3.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.xiaoymin</groupId>
+                <artifactId>knife4j-openapi3-ui</artifactId>
+                <version>${com.github.xiaoymin.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springdoc</groupId>
+                <artifactId>springdoc-openapi-starter-webflux-ui</artifactId>
+                <version>${org.springdoc.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-spring-boot3-starter</artifactId>
+                <version>${mybatis-plus-spring-boot3-starter.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid-spring-boot-starter</artifactId>
+                <version>${druid-spring-boot-starter.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql-connector-java.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.mapstruct</groupId>
+                <artifactId>mapstruct</artifactId>
+                <version>${org.mapstruct.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${org.projectlombok.version}</version>
+            </dependency>
+
+            <!--   jwt 依赖    -->
+            <dependency>
+                <groupId>com.auth0</groupId>
+                <artifactId>java-jwt</artifactId>
+                <version>${com.auth0.version}</version>
+            </dependency>
+
+            <!-- 文档相关依赖 -->
+            <dependency>
+                <groupId>org.springdoc</groupId>
+                <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+                <version>${org.springdoc.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springdoc</groupId>
+                <artifactId>springdoc-openapi-starter-common</artifactId>
+                <version>${org.springdoc.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>transmittable-thread-local</artifactId>
+                <version>${transmittable-thread-local.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring.boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.ai</groupId>
+                <artifactId>spring-ai-bom</artifactId>
+                <version>${spring-ai.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+                <version>${com.alibaba.cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-bom</artifactId>
+                <version>${hutool.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <!-- 下载spring-ai 依赖   -->
+    <repositories>
+        <repository>
+            <id>spring-milestones</id>
+            <name>Spring Milestones</name>
+            <url>https://repo.spring.io/milestone</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+
+    <build>
+        <!-- 设置构建的 jar 包名 -->
+        <finalName>${project.artifactId}</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>versions-maven-plugin</artifactId>
+                <version>${versions-maven-plugin.verion}</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>set</goal>
+                            <goal>set-property</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <generateBackupPoms>false</generateBackupPoms>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven-compiler-plugin.version}</version>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                    <compilerArgs>
+                        <compilerArg>
+                            -parameters
+                        </compilerArg>
+                    </compilerArgs>
+                    <annotationProcessorPaths>
+                        <path>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok</artifactId>
+                            <version>${org.projectlombok.version}</version>
+                        </path>
+                        <path>
+                            <groupId>org.mapstruct</groupId>
+                            <artifactId>mapstruct-processor</artifactId>
+                            <version>${org.mapstruct.version}</version>
+                        </path>
+                        <!--
+                        additional annotation processor required as of Lombok 1.18.16
+                        https://mapstruct.org/documentation/stable/reference/html/#lombok
+                        -->
+                        <path>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok-mapstruct-binding</artifactId>
+                            <version>0.2.0</version>
+                        </path>
+                    </annotationProcessorPaths>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>flatten-maven-plugin</artifactId>
+                <version>${flatten-maven-plugin.version}</version>
+                <configuration>
+                    <updatePomFile>true</updatePomFile>
+                    <flattenMode>resolveCiFriendliesOnly</flattenMode>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>flatten</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>flatten</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>flatten.clean</id>
+                        <phase>clean</phase>
+                        <goals>
+                            <goal>clean</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+
+</project>
