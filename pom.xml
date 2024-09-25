@@ -26,7 +26,8 @@
         <flatten-maven-plugin.version>1.6.0</flatten-maven-plugin.version>
 
         <spring.boot.version>3.2.4</spring.boot.version>
-        <spring-ai.version>1.0.0-M1</spring-ai.version>
+        <spring-ai.version>1.0.0-M2</spring-ai.version>
+        <spring-ai-alibaba.version>1.0.0-M2</spring-ai-alibaba.version>
         <spring-cloud.version>2023.0.1</spring-cloud.version>
         <com.alibaba.cloud.version>2023.0.1.2</com.alibaba.cloud.version>
 
@@ -51,6 +52,8 @@
 
         <!-- Jwt Token -->
         <com.auth0.version>4.4.0</com.auth0.version>
+        <!-- httpClient5 版本-->
+        <org.apache.httpcomponents.client5.verion>5.3</org.apache.httpcomponents.client5.verion>
     </properties>
 
     <dependencyManagement>
@@ -149,6 +152,25 @@
                 <version>${org.springdoc.version}</version>
             </dependency>
 
+            <!-- 阿里云AI 依赖-->
+            <dependency>
+                <groupId>com.alibaba.cloud.ai</groupId>
+                <artifactId>spring-ai-alibaba-starter</artifactId>
+                <version>${spring-ai-alibaba.version}</version>
+            </dependency>
+
+            <!-- 服务之间通信 -->
+            <dependency>
+                <groupId>org.apache.httpcomponents.client5</groupId>
+                <artifactId>httpclient5</artifactId>
+                <version>${org.apache.httpcomponents.client5.verion}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.httpcomponents.core5</groupId>
+                <artifactId>httpcore5</artifactId>
+                <version>${org.apache.httpcomponents.client5.verion}</version>
+            </dependency>
+
             <dependency>
                 <groupId>com.alibaba</groupId>
                 <artifactId>transmittable-thread-local</artifactId>
@@ -200,6 +222,18 @@
             <url>https://repo.spring.io/milestone</url>
             <snapshots>
                 <enabled>false</enabled>
+            </snapshots>
+        </repository>
+
+        <!-- 阿里云仓库地址-->
+        <repository>
+            <id>central</id>
+            <url>https://maven.aliyun.com/repository/central</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
             </snapshots>
         </repository>
     </repositories>
