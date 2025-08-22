@@ -15,7 +15,7 @@
 
 
     <properties>
-        <revision>1.6.1</revision>
+        <revision>1.7.0</revision>
 
         <java.version>17</java.version>
         <maven.compiler.source>${java.version}</maven.compiler.source>
@@ -27,7 +27,7 @@
 
         <spring.boot.version>3.2.11</spring.boot.version>
         <spring-ai.version>1.0.0</spring-ai.version>
-        <spring-ai-alibaba.version>1.0.0.2</spring-ai-alibaba.version>
+        <spring-ai-alibaba.version>1.0.0.3</spring-ai-alibaba.version>
         <spring-cloud.version>2023.0.1</spring-cloud.version>
         <com.alibaba.cloud.version>2023.0.1.2</com.alibaba.cloud.version>
 
@@ -56,6 +56,8 @@
         <com.auth0.version>4.4.0</com.auth0.version>
         <!-- httpClient5 版本-->
         <org.apache.httpcomponents.client5.verion>5.3</org.apache.httpcomponents.client5.verion>
+
+        <com.alibaba.fastjson2>2.0.56</com.alibaba.fastjson2>
     </properties>
 
     <dependencyManagement>
@@ -178,6 +180,12 @@
                 <groupId>redis.clients</groupId>
                 <artifactId>jedis</artifactId>
                 <version>${jedis.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba.fastjson2</groupId>
+                <artifactId>fastjson2</artifactId>
+                <version>${com.alibaba.fastjson2}</version>
             </dependency>
 
             <dependency>
